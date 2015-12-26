@@ -1,0 +1,21 @@
+﻿TW Weather (台灣天氣)
+
+Version: 1.4.0.0
+
+Copyright © Ascii Huang. All Rights Reserved.
+
+Data comes from central Weather Bureau
+
+TW Weather is an open source project. please check the web site of the project(http://github.com/zonble/twweather) for furthor information.
+
+資料來源：中央氣象局
+
+台灣天氣是一套開放原始碼的自由軟體，您可以在專案網站上(http://github.com/zonble/twweather)，取得更多相關資訊。
+
+台灣天氣 Windows Phone 版 App 由 Ascii 開發，Server API 由 zonble 開發，若您有使用 iPhone/iPod Touch，歡迎試試由 zonble 開發的台灣天氣 iOS 版。
+
+如果您覺得台灣天氣 Windows Phone/iOS 版還不錯，請給我們一個好的評價與分數 :D
+
+同時也歡迎您對軟體功能提出建議，請寄信至 asciiss@gmail.com
+
+

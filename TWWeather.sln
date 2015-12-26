@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TWWeather", "TWWeather\TWWeather.csproj", "{50F667DA-2921-4301-9E51-FB3D8F9DCA6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TWWeather.AppServices", "TWWeather.AppServices\TWWeather.AppServices.csproj", "{EA868FDB-61BC-4239-980B-C3D5FC50273B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduledAgent", "ScheduledAgent\ScheduledAgent.csproj", "{D9308D3D-2317-4E79-ABB3-B506F68484E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TWWeather.TileServices", "TWWeather.TileServices\TWWeather.TileServices.csproj", "{F7DB0D7A-8FBE-4073-962D-0148E1256726}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50F667DA-2921-4301-9E51-FB3D8F9DCA6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50F667DA-2921-4301-9E51-FB3D8F9DCA6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50F667DA-2921-4301-9E51-FB3D8F9DCA6F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{50F667DA-2921-4301-9E51-FB3D8F9DCA6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50F667DA-2921-4301-9E51-FB3D8F9DCA6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50F667DA-2921-4301-9E51-FB3D8F9DCA6F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{EA868FDB-61BC-4239-980B-C3D5FC50273B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA868FDB-61BC-4239-980B-C3D5FC50273B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA868FDB-61BC-4239-980B-C3D5FC50273B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA868FDB-61BC-4239-980B-C3D5FC50273B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9308D3D-2317-4E79-ABB3-B506F68484E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9308D3D-2317-4E79-ABB3-B506F68484E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9308D3D-2317-4E79-ABB3-B506F68484E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9308D3D-2317-4E79-ABB3-B506F68484E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7DB0D7A-8FBE-4073-962D-0148E1256726}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7DB0D7A-8FBE-4073-962D-0148E1256726}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7DB0D7A-8FBE-4073-962D-0148E1256726}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7DB0D7A-8FBE-4073-962D-0148E1256726}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

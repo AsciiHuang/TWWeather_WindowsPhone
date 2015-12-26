@@ -1,0 +1,182 @@
+﻿<Application 
+    x:Class="TWWeather.App" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone" 
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone" 
+    xmlns:local="clr-namespace:TWWeather" 
+    xmlns:tookits="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" 
+    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!--應用程式資源-->
+    <Application.Resources>
+        <DataTemplate x:Key="WeatherListItemTemplate">
+            <local:WeatherListTemplateSelector Content="{Binding}">
+                <local:WeatherListTemplateSelector.SpaceItem>
+                    <DataTemplate>
+                        <StackPanel Height="20" Width="420"/>
+                    </DataTemplate>
+                </local:WeatherListTemplateSelector.SpaceItem>
+                <local:WeatherListTemplateSelector.SeparatorItem>
+                    <DataTemplate>
+                        <StackPanel Height="35" Width="420" Background="#88666666">
+                            <TextBlock Margin="10,0,0,0" Text="{Binding Title}" FontSize="24" Foreground="White"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </local:WeatherListTemplateSelector.SeparatorItem>
+                <local:WeatherListTemplateSelector.SimpleItem>
+                    <DataTemplate>
+                        <StackPanel Height="50" Width="420" Margin="0,0,0,22" Orientation="Horizontal" VerticalAlignment="Center">
+                            <TextBlock Text="{Binding Title}" FontSize="32" Width="370" Margin="10,0,0,0" Foreground="#FF333333" VerticalAlignment="Center"/>
+                            <Image Source="Image/ReadMore.png" Margin="0,5,0,0" Width="40" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </local:WeatherListTemplateSelector.SimpleItem>
+                <local:WeatherListTemplateSelector.SmallIconItem>
+                    <DataTemplate>
+                        <StackPanel Height="50" Width="420" Margin="0,0,0,12" Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Margin="7,5,0,0" Source="{Binding Icon}" Width="23"/>
+                            <TextBlock Text="{Binding Title}" FontSize="28" Width="380" Margin="10,0,0,0" Foreground="#FF333333" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </local:WeatherListTemplateSelector.SmallIconItem>
+                <local:WeatherListTemplateSelector.LargeIconItem>
+                    <DataTemplate>
+                        <StackPanel Height="60" Width="420" Margin="0,0,0,12" Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Source="{Binding Icon}" Width="23"/>
+                            <TextBlock Text="{Binding Title}" FontSize="28" Width="360" Margin="8,0,0,0" Foreground="#FF333333" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </local:WeatherListTemplateSelector.LargeIconItem>
+                <local:WeatherListTemplateSelector.AreaItem>
+                    <DataTemplate>
+                        <StackPanel Height="180" Width="420" Margin="0,0,0,20" Background="#AAFFFFFF" Orientation="Horizontal">
+                            <StackPanel Width="200" Orientation="Vertical" HorizontalAlignment="Center">
+                                <Image Source="{Binding Icon}" Width="180" Margin="0,10,0,0"/>
+                                <TextBlock FontSize="18" Foreground="#FF333333" Text="{Binding Description}" Margin="0,10,0,0" TextAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Width="220" Orientation="Vertical">
+                                <TextBlock FontSize="22" Margin="0,8,0,0" Text="{Binding Title}" FontWeight="Bold" TextAlignment="Center" Foreground="{StaticResource PhoneAccentBrush}"/>
+                                <TextBlock FontSize="16" Margin="0,10,0,0"  Text="{Binding StartTime}" TextAlignment="Center" Foreground="#FF333333"/>
+                                <TextBlock FontSize="16" Margin="0,5,0,0"  Text="{Binding EndTime}" TextAlignment="Center" Foreground="#FF333333"/>
+                                <TextBlock FontSize="32" Margin="0,0,0,0"  Text="{Binding Temperature}" FontWeight="ExtraBold" TextAlignment="Center" Foreground="#FF333333"/>
+                                <TextBlock FontSize="18" Margin="0,5,0,0"  Text="{Binding ChanceOfRain}" TextAlignment="Center" Foreground="#FF333333"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </local:WeatherListTemplateSelector.AreaItem>
+                <local:WeatherListTemplateSelector.OBSItem>
+                    <DataTemplate>
+                        <StackPanel Height="200" Width="420" Margin="0,0,0,20" Background="#AAFFFFFF" Orientation="Vertical">
+                            <StackPanel Height="34" Background="#66000000">
+                                <TextBlock FontSize="18" Margin="10,4,0,0" Text="{Binding StartTime}" FontWeight="Bold" Foreground="White"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Height="180">
+                                <StackPanel Width="200" Orientation="Vertical" HorizontalAlignment="Center">
+                                    <Image Source="{Binding Icon}" Width="166" Margin="0,10,0,0"/>
+                                    <TextBlock FontSize="18" Margin="0,8,0,0" Foreground="#FF333333" Text="{Binding Description}" TextAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Width="220" Orientation="Vertical">
+                                    <TextBlock FontSize="22" Margin="0,12,0,0" Text="{Binding Temperature}" FontWeight="Bold" TextAlignment="Center" Foreground="{StaticResource PhoneAccentBrush}"/>
+                                    <TextBlock FontSize="22" Margin="0,10,0,0"  Text="{Binding RainScale}" TextAlignment="Center" Foreground="#FF333333"/>
+                                    <TextBlock FontSize="22" Margin="0,6,0,0"  Text="{Binding WindDirection}" TextAlignment="Center" Foreground="#FF333333"/>
+                                    <TextBlock FontSize="22" Margin="0,6,0,0"  Text="{Binding WindScale}" TextAlignment="Center" Foreground="#FF333333"/>
+                                    <TextBlock FontSize="22" Margin="0,6,0,0"  Text="{Binding GustWindScale}" TextAlignment="Center" Foreground="#FF333333"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </local:WeatherListTemplateSelector.OBSItem>
+                <local:WeatherListTemplateSelector.WeekItem>
+                    <DataTemplate>
+                        <StackPanel Height="85" Width="420" Margin="0,0,0,20" Background="#AAFFFFFF" Orientation="Vertical">
+                            <StackPanel Height="40">
+                                <TextBlock Margin="10,2,0,0" Text="{Binding StartTime}" FontSize="24" Foreground="#FF000000"/>
+                            </StackPanel>
+                            <StackPanel Height="45" Orientation="Horizontal">
+                                <TextBlock Text="{Binding Description}" Width="250" Margin="10,2,0,0" FontSize="26" Foreground="#FF333333" TextAlignment="Left"/>
+                                <TextBlock Text="{Binding Temperature}" Width="150" Margin="0,4,10,0" FontSize="24" Foreground="#FF333333" TextAlignment="Right"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </local:WeatherListTemplateSelector.WeekItem>
+                <local:WeatherListTemplateSelector.SeaItem>
+                    <DataTemplate>
+                        <StackPanel Height="240" Width="420" Margin="0,0,0,20" Background="#AAFFFFFF" Orientation="Vertical">
+                            <StackPanel Height="160" Orientation="Horizontal">
+                                <StackPanel Width="220">
+                                    <TextBlock Margin="10,10,0,0" Text="{Binding StartTime}" FontSize="26" FontWeight="ExtraBlack" Foreground="{StaticResource PhoneAccentBrush}"/>
+                                    <TextBlock Margin="10,8,0,0" Text="{Binding Description}" FontSize="22" Foreground="#FF333333"/>
+                                    <TextBlock Margin="10,6,0,0" Text="{Binding Wind}" FontSize="22" Foreground="#FF333333"/>
+                                    <TextBlock Margin="10,6,0,0" Text="{Binding Wave}" FontSize="22" Foreground="#FF333333"/>
+                                </StackPanel>
+                                <StackPanel Width="200">
+                                    <Image Source="{Binding Icon}" Margin="10,10,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Height="75" Margin="0,5,0,0">
+                                <TextBlock Margin="10,0,0,0" Text="{Binding WindScale}" FontSize="22" Foreground="#FF333333" TextWrapping="Wrap"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </local:WeatherListTemplateSelector.SeaItem>
+                <local:WeatherListTemplateSelector.NearSeaItem>
+                    <DataTemplate>
+                        <StackPanel Height="460" Width="420" Margin="0,0,0,20" Background="#AAFFFFFF" Orientation="Vertical">
+                            <TextBlock FontSize="24" FontWeight="ExtraBlack" Margin="10,10,0,0" Text="{Binding Title}" Foreground="#FF333333"/>
+                            <TextBlock FontSize="20" Margin="10,6,0,0" Text="{Binding ValidTime}" Foreground="#FF333333"/>
+                            <TextBlock FontSize="32" Margin="10,8,0,0" Text="{Binding Description}" Foreground="{StaticResource PhoneAccentBrush}"/>
+                            <Image Height="160" Margin="0,10,0,0" Source="{Binding Icon}" HorizontalAlignment="Left"/>
+                            <TextBlock FontSize="22" Margin="10,10,0,0" Text="{Binding Wind}" Foreground="#FF333333"/>
+                            <TextBlock FontSize="22" Margin="10,6,0,0" Text="{Binding WindScale}" Foreground="#FF333333"/>
+                            <TextBlock FontSize="22" Margin="10,6,0,0" Text="{Binding Wave}" Foreground="#FF333333"/>
+                            <TextBlock FontSize="22" Margin="10,6,0,0" Text="{Binding WaveLevel}" Foreground="#FF333333"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </local:WeatherListTemplateSelector.NearSeaItem>
+                <local:WeatherListTemplateSelector.TideItem>
+                    <DataTemplate>
+                        <StackPanel Width="420" Margin="0,0,0,20" Background="#AAFFFFFF" Orientation="Vertical">
+                            <StackPanel Height="40" Orientation="Horizontal" Background="#FF666666">
+                                <TextBlock FontSize="26" Width="200" FontWeight="Bold" Margin="10,0,0,0" Text="{Binding StartTime}" Foreground="White"/>
+                                <TextBlock FontSize="20" Width="200" Margin="0,3,10,0" Text="{Binding LunarDate}" TextAlignment="Right" Foreground="White"/>
+                            </StackPanel>
+                            <TextBlock FontSize="24" Margin="10,6,0,0" FontWeight="Bold" FontFamily="Courier New" LineStackingStrategy="BlockLineHeight" LineHeight="48" Text="{Binding Description}" Foreground="#FF333333"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </local:WeatherListTemplateSelector.TideItem>
+                <local:WeatherListTemplateSelector.GlobalItem>
+                    <DataTemplate>
+                        <StackPanel Height="440" Width="420" Margin="0,0,0,20" Background="#AAFFFFFF" Orientation="Vertical">
+                            <Image Source="{Binding Icon}" Height="180" Margin="0,20,0,0"/>
+                            <StackPanel Orientation="Horizontal" Margin="0,20,0,0" Background="#AAFFFFFF" Height="50">
+                                <TextBlock FontSize="26" FontWeight="Bold" Width="200" Foreground="Black" Text="天氣" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                                <TextBlock FontSize="26" Width="200" Foreground="{StaticResource PhoneAccentBrush}" Text="{Binding Description}" TextAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,5,0,0" Background="#AAFFFFFF" Height="50">
+                                <TextBlock FontSize="26" FontWeight="Bold" Width="200" Foreground="Black" Text="溫度" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                                <TextBlock FontSize="26" Width="200" Foreground="{StaticResource PhoneAccentBrush}" Text="{Binding Temperature}" TextAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,5,0,0" Background="#AAFFFFFF" Height="50">
+                                <TextBlock FontSize="26" FontWeight="Bold" Width="200" Foreground="Black" Text="月平均溫度" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                                <TextBlock FontSize="26" Width="200" Foreground="{StaticResource PhoneAccentBrush}" Text="{Binding AvgTemperature}" TextAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,5,0,0" Background="#AAFFFFFF" Height="50">
+                                <TextBlock FontSize="26" FontWeight="Bold" Width="200" Foreground="Black" Text="月平均降雨量" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                                <TextBlock FontSize="26" Width="200" Foreground="{StaticResource PhoneAccentBrush}" Text="{Binding AvgRain}" TextAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </local:WeatherListTemplateSelector.GlobalItem>
+            </local:WeatherListTemplateSelector>
+        </DataTemplate>
+    </Application.Resources>
+
+    <Application.ApplicationLifetimeObjects>
+        <!--必要物件，用來處理應用程式的存留期事件-->
+        <shell:PhoneApplicationService 
+            Launching="Application_Launching" Closing="Application_Closing" 
+            Activated="Application_Activated" Deactivated="Application_Deactivated"/>
+    </Application.ApplicationLifetimeObjects>
+
+</Application>

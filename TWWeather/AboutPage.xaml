@@ -1,0 +1,53 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="TWWeather.AboutPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="False">
+
+    <phone:PhoneApplicationPage.Projection>
+        <PlaneProjection x:Name="planeProjection" CenterOfRotationX="0" CenterOfRotationY="1.5" />
+    </phone:PhoneApplicationPage.Projection>
+
+    <phone:PhoneApplicationPage.Triggers>
+        <EventTrigger>
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="planeProjection"
+                                     Storyboard.TargetProperty="RotationY"
+                                     From="90" To="0" Duration="0:0:0.5" />
+                    <DoubleAnimation Storyboard.TargetName="planeProjection"
+                                     Storyboard.TargetProperty="RotationX"
+                                     From="60" To="0" Duration="0:0:0.5" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </phone:PhoneApplicationPage.Triggers>
+
+    <Grid x:Name="LayoutRoot" Background="#FFFBE7">
+        <!--<Grid.Background>
+            <ImageBrush ImageSource="Image/bg.jpg"/>
+        </Grid.Background>-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="台灣天氣" Style="{StaticResource PhoneTextNormalStyle}" Foreground="#FF333333"/>
+            <TextBlock x:Name="PageTitle" Text="關於" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Foreground="#FF333333"/>
+        </StackPanel>
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <ScrollViewer VerticalScrollBarVisibility="Visible" Width="450">
+                <TextBlock FontSize="22" Text="{Binding AboutText}" TextWrapping="Wrap" Foreground="#FF333333"/>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</phone:PhoneApplicationPage>
